@@ -1,0 +1,64 @@
+/* Set a background color for the page */
+body {
+    background-color: #f0f4f7;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Centering the content */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Card styling */
+.card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    margin: 20px;
+    border: 1px solid #ddd;
+}
+
+/* Heading styles */
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Paragraphs for the results */
+p {
+    font-size: 18px;
+    color: #555;
+    margin: 10px 0;
+}
+
+/* Styling for the uploaded image */
+.image-container {
+    margin-top: 20px;
+}
+
+.prediction-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    margin-top: 20px;
+}
+
+/* Optional: Styling for the container, making it responsive */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

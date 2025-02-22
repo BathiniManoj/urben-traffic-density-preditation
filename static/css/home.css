@@ -1,0 +1,147 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+h2, h1 {
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+input[type="file"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 350px;
+}
+
+.submit-button {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Camera Container */
+.camera-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#live-camera-preview {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.capture-button {
+    background-color: #007BFF;
+    color: white;
+    font-size: 18px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.capture-button:hover {
+    background-color: #0056b3;
+}
+
+/* Captured Image Container */
+#captured-image-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#captured-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 600px) {
+    .card {
+        width: 100%;
+        padding: 15px;
+    }
+
+    h2, h1 {
+        font-size: 20px;
+    }
+
+    input[type="file"] {
+        max-width: 280px;
+    }
+
+    .submit-button, .capture-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    #live-camera-preview {
+        max-width: 100%;
+        height: auto;
+    }
+}

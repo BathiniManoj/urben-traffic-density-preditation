@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}"> <!-- Link to external CSS -->
+    
+    <!-- Include FontAwesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    
+    <title>{% block title %}Traffic Management{% endblock %}</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="{% url 'traffic_data_list' %}"><i class="fas fa-list"></i> Traffic Data List</a></li>
+        </ul>
+    </nav>
+
+    <!-- Content Section -->
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

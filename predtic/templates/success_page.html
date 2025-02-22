@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{% static 'css/success.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Traffic Prediction Results</h1>
+
+            <p><strong>Estimated Delay:</strong> {{ estimated_delay }} minutes</p>
+            <p><strong>Traffic Density Level:</strong> {{ density_level }}</p>
+
+            <div class="image-container">
+                <p><strong>Uploaded Image:</strong></p>
+                <img src="{{ image_url }}" alt="Uploaded Image" class="prediction-image">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock %}

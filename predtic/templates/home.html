@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Density Prediction</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="card upload-card">
+            <h2>Upload an Image to Predict Traffic Density</h2>
+            <form action="{% url 'predict_image' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="image">Select Image:</label>
+                <input type="file" name="image" id="image" accept="image/*" required>
+                <button type="submit" class="submit-button">Upload Image</button>
+            </form>
+        </div>
+
+        <div class="card camera-card">
+            <h1>Traffic Prediction from Camera</h1>
+            {% if error %}
+                <div class="error-message">
+                    <p>{{ error }}</p>
+                </div>
+            {% endif %}
+
+            <div class="camera-container">
+                <video id="live-camera-preview" autoplay></video>
+                <button class="capture-button" onclick="captureImage()">Capture Image</button>
+            </div>
+
+            <form action="{% url 'predict_image' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="file" name="image" id="captured-image-input" style="display:none;">
+                <input type="submit" value="Upload Image" id="upload-button" class="submit-button" style="display:none;">
+            </form>
+
+            <div id="captured-image-container">
+                <img id="captured-image" src="" alt="Captured Image" style="display:none;">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const videoElement = document.getElementById("live-camera-preview");
+        const capturedImageInput = document.getElementById("captured-image-input");
+        const uploadButton = document.getElementById("upload-button");
+        const capturedImage = document.getElementById("captured-image");
+
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function (stream) {
+                videoElement.srcObject = stream;
+            })
+            .catch(function (err) {
+                console.log("Error: " + err);
+                alert("Camera is not accessible. Please check your camera settings.");
+            });
+
+        function captureImage() {
+            const canvas = document.createElement("canvas");
+            const context = canvas.getContext("2d");
+            const width = videoElement.videoWidth;
+            const height = videoElement.videoHeight;
+            canvas.width = width;
+            canvas.height = height;
+            context.drawImage(videoElement, 0, 0, width, height);
+
+            const imageUrl = canvas.toDataURL("image/jpeg");
+
+            capturedImage.src = imageUrl;
+            capturedImage.style.display = "block";
+
+            const byteString = atob(imageUrl.split(",")[1]);
+            const arrayBuffer = new ArrayBuffer(byteString.length);
+            const uintArray = new Uint8Array(arrayBuffer);
+            for (let i = 0; i < byteString.length; i++) {
+                uintArray[i] = byteString.charCodeAt(i);
+            }
+
+            const blob = new Blob([uintArray], { type: "image/jpeg" });
+            const file = new File([blob], "captured_image.jpg", { type: "image/jpeg" });
+
+            const dataTransfer = new DataTransfer();
+            dataTransfer.items.add(file);
+            capturedImageInput.files = dataTransfer.files;
+
+            uploadButton.style.display = "inline-block";
+        }
+    </script>
+</body>
+</html>
+
+{% endblock %}

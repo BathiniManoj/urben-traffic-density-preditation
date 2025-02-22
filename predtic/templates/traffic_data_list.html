@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Data List</title>
+    <link rel="stylesheet" href="{% static 'css/list.css'%}"> <!-- Link to external CSS -->
+
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>Traffic Data List</h1>
+
+
+        <!-- Display traffic data in a table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Vehicle Type</th>
+                    
+                    <th>Peak Hour</th>
+                    
+                    <th>Traffic Density</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in traffic_data %}
+                <tr>
+                    <td>{{ data.vehicle_type }}</td>
+                 
+                    <td>{{ data.is_peak_hour }}</td>
+                    
+                    <td>{{ data.traffic_density }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="10">No traffic data available.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
+{% endblock %}

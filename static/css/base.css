@@ -1,0 +1,153 @@
+
+   /* base.css */
+
+nav {
+    background-color: black;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {/* home.css */
+
+/* Body and general settings */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fb;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container to center the content */
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 30px;
+}
+
+/* Styling for the cards */
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(11, 115, 136, 0.1);
+    padding: 20px;
+    width: 300px;
+    margin: 20px;
+    text-align: center;
+}
+
+.upload-card {
+    background-color: #ffffff;
+}
+
+.camera-card {
+    background-color: #f7f9fa;
+}
+
+h2, h1 {
+    color: #333;
+}
+
+/* Form elements */
+input[type="file"] {
+    margin: 15px 0;
+    padding: 10px;
+    width: 100%;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Camera preview area */
+.camera-container {
+    position: relative;
+}
+
+#live-camera-preview {
+    width: 100%;
+    height: auto;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
+
+.capture-button {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.capture-button:hover {
+    background-color: #fb8c00;
+}
+
+/* Error message styling */
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 4px;
+}
+
+/* Captured Image Styling */
+#captured-image-container {
+    margin-top: 20px;
+}
+
+#captured-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Upload Button */
+#upload-button {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav ul li a i {
+    margin-right: 8px;  /* Space between icon and text */
+}
+
+nav ul li a:hover {
+    color: #ff9800;  /* Hover color for links */
+}
